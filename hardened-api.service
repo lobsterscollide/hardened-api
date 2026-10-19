@@ -1,0 +1,14 @@
+[Unit]
+Description=Hardened API - Linux system hardening service
+After=network.target
+ConditionPathExists=/usr/local/bin/hardened-api
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/hardened-api
+EnvironmentFile=/etc/hardened-api/env
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
